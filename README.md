@@ -53,8 +53,10 @@ import (
     "testing"                                                                                                                                                                                                    
 )
 
-func TestMain(m *testing.T) {
+func TestMyFunc(m *testing.T) {
 	// test code
+	// call MyFunc()
+	// Assert
 }
 
 ```
