@@ -4,6 +4,10 @@ import (
 	"testing"
 )
 
-func TestMain(m *testing.T) {
+func TestBasicJsonExample(t *testing.T) {
 	BasicJsonExample()
+}
+
+func TestMapToJsonExample(t *testing.T) {
+	MapToJsonExample()
 }
