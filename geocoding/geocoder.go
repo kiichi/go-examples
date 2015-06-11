@@ -26,8 +26,10 @@ func ReadSchools() []interface{} {
 	return data["results"].(map[string]interface{})["Schools"].([]interface{})
 }
 
-func Geocode(schools []interface{}) {
-	for i := 0; i < len(schools); i++ {
+func Geocode(schools []interface{}) []interface{} {
+	//for i := 0; i < len(schools); i++ {
+	// just do first one for test.
+	for i := 0; i < 1; i++ {
 		dict := schools[i].(map[string]interface{})
 		fmt.Printf("%s,%s\n", dict["STREET"], dict["CITY"])
 		url := fmt.Sprint("http://open.mapquestapi.com/nominatim/v1/search.php?format=json&q=", url.QueryEscape(dict["STREET"].(string)), ",", url.QueryEscape(dict["CITY"].(string)), url.QueryEscape(" NY USA"))
@@ -55,6 +57,10 @@ func Geocode(schools []interface{}) {
 			fmt.Println(schools[i])
 		}
 	}
+	return schools
+}
+
+func WriteSchools(schools []interface{}) {
 	content, err := json.Marshal(schools)
 	if err != nil {
 		fmt.Println("marshal error ", err)
