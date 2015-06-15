@@ -24,6 +24,7 @@ _testmain.go
 *.exe
 *.test
 
-geocoding/schools_geocoded.json
+geocoding/schools_geocoded*
 
 
+.DS_Store
