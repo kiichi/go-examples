@@ -73,12 +73,13 @@ func WriteSchools(schools []interface{}) {
 	}
 }
 
+//UPDATE Ambassador SET Location = geography::Point(lat, lng, 4326)
 func WriteSchoolsSQL(schools []interface{}) {
 	str := ""
 	for i := 0; i < len(schools); i++ {
 		var row = schools[i].(map[string]interface{})
 		if row["lat"] != nil {
-			str = fmt.Sprint(str, "UPDATE Ambassador SET lat='", row["lat"], "', lng='", row["lng"], "' WHERE ENTITY_CD='", row["ENTITY_CD"], "';\n")
+			str = fmt.Sprint(str, "UPDATE Ambassador SET lat='", row["lat"], "', lng='", row["lng"], "' Location=geography::Point(", row["lat"], ",", row["lng"], ",4326) WHERE ENTITY_CD='", row["ENTITY_CD"], "';\n")
 		}
 	}
 	err2 := ioutil.WriteFile("./schools_geocoded.sql", []byte(str), 0644)

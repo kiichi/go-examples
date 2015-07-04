@@ -17,8 +17,8 @@ func TestGeocodeR(t *testing.T) {
 	GeocodeR(schools) // no values to return
 }
 
+*/
 func TestWriteSchoolsSQL(t *testing.T) {
 	schools := ReadSchoolsR()
 	WriteSchoolsSQL(schools)
 }
-*/
